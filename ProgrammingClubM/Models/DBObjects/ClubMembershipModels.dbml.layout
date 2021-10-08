@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="ClubMembershipModels">
+  <DataContextMoniker Name="/ClubMembershipModelsDataContext" />
+  <nestedChildShapes>
+    <classShape Id="a9383b68-a678-44da-8fa0-9c543cbdd4c1" absoluteBounds="5, 3.625, 2, 2.1554996744791666">
+      <DataClassMoniker Name="/ClubMembershipModelsDataContext/Announcement" />
+      <nestedChildShapes>
+        <elementListCompartment Id="f57bab67-aa50-46c4-9360-f3bf7822b94c" absoluteBounds="5.015, 4.085, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="a8bdfdfb-8678-43b5-ba98-8857276b8131" absoluteBounds="6.5, 1.375, 2, 1.7708968098958331">
+      <DataClassMoniker Name="/ClubMembershipModelsDataContext/CodeSnippet" />
+      <nestedChildShapes>
+        <elementListCompartment Id="4c98cab0-2db7-42ad-b519-51b425f35ecd" absoluteBounds="6.515, 1.835, 1.9700000000000002, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="1a2528fa-0dc5-49f8-833b-1a6af1ed7c7d" absoluteBounds="3.375, 0.875, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ClubMembershipModelsDataContext/Member" />
+      <nestedChildShapes>
+        <elementListCompartment Id="b8d4c21b-96b9-4664-8a18-7f52da01afb1" absoluteBounds="3.3899999999999997, 1.335, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(5.375 : 1.71875); (6.5 : 1.71875)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClubMembershipModelsDataContext/Member/Member_CodeSnippet" />
+      <nodes>
+        <classShapeMoniker Id="1a2528fa-0dc5-49f8-833b-1a6af1ed7c7d" />
+        <classShapeMoniker Id="a8bdfdfb-8678-43b5-ba98-8857276b8131" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="31dc945b-5d8a-4cbb-88b9-566fd7fac680" absoluteBounds="2.25, 3.5, 2, 1.9631982421875">
+      <DataClassMoniker Name="/ClubMembershipModelsDataContext/Membership" />
+      <nestedChildShapes>
+        <elementListCompartment Id="fac3437b-7dd3-4dd2-8431-1e4003ec8440" absoluteBounds="2.265, 3.96, 1.9700000000000002, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(3.8125 : 2.8381982421875); (3.8125 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClubMembershipModelsDataContext/Member/Member_Membership" />
+      <nodes>
+        <classShapeMoniker Id="1a2528fa-0dc5-49f8-833b-1a6af1ed7c7d" />
+        <classShapeMoniker Id="31dc945b-5d8a-4cbb-88b9-566fd7fac680" />
+      </nodes>
+    </associationConnector>
+    <classShape Id="9d04fc20-a044-4cb9-b269-670e292506df" absoluteBounds="0.75, 0.5, 2, 1.5785953776041666">
+      <DataClassMoniker Name="/ClubMembershipModelsDataContext/MembershipType" />
+      <nestedChildShapes>
+        <elementListCompartment Id="992a0897-16aa-4cea-bd75-2bc38fbf1cb8" absoluteBounds="0.76500000000000012, 0.96, 1.9700000000000002, 1.0185953776041665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.5 : 2.07859537760417); (2.5 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/ClubMembershipModelsDataContext/MembershipType/MembershipType_Membership" />
+      <nodes>
+        <classShapeMoniker Id="9d04fc20-a044-4cb9-b269-670e292506df" />
+        <classShapeMoniker Id="31dc945b-5d8a-4cbb-88b9-566fd7fac680" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
