@@ -94,6 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="TestDb\clubmembershiptests.mdf" />
+    <Content Include="TestDb\clubmembershiptests_log.ldf">
+      <DependentUpon>clubmembershiptests.mdf</DependentUpon>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -103,6 +107,9 @@
       <Project>{9225B14A-8CFE-43E1-BC61-2FDFA85B34CD}</Project>
       <Name>ProgrammingClubM</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
