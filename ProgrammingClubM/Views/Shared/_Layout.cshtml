@@ -19,13 +19,18 @@
                 </button>
                 @Html.ActionLink("Programming Club", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse" >
-                <ul class="nav navbar-nav" >
-                    <li >@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li >@Html.ActionLink("Announcement", "Index", "Announcement")</li>
-                    <li >@Html.ActionLink("Contact", "Contact", "Home")</li>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Announcement", "Index", "Announcement")</li>
+                    <li>@Html.ActionLink("CodeSnippet", "Index", "CodeSnippet")</li>
+                </ul>
             </div>
         </div>
     </div>
