@@ -10,6 +10,7 @@ namespace ProgrammingClubM.Models.ViewModels
     {
         public string Name { get; set; }
 
+
         public string Title { get; set; }
 
         public string Position { get; set; }
