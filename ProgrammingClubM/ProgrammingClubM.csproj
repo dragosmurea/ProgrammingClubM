@@ -208,6 +208,7 @@
     <Compile Include="Repository\AnnouncementRepository.cs" />
     <Compile Include="Repository\CodeSnippetRepository.cs" />
     <Compile Include="Repository\MemberRepository.cs" />
+    <Compile Include="Repository\MembershipTypeRepository.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -286,6 +287,11 @@
     <Content Include="Views\CodeSnippet\Edit.cshtml" />
     <Content Include="Views\CodeSnippet\Delete.cshtml" />
     <Content Include="Views\Member\DetailsViewModel.cshtml" />
+    <Content Include="Views\Member\Create.cshtml" />
+    <Content Include="Views\Member\Index.cshtml" />
+    <Content Include="Views\Member\Edit.cshtml" />
+    <Content Include="Views\Member\Delete.cshtml" />
+    <Content Include="Views\Member\Details.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

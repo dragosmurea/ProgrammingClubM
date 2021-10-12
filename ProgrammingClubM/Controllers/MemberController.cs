@@ -1,4 +1,5 @@
-﻿using ProgrammingClubM.Models.ViewModels;
+﻿using ProgrammingClubM.Models;
+using ProgrammingClubM.Models.ViewModels;
 using ProgrammingClubM.Repository;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,9 @@ namespace ProgrammingClubM.Controllers
         // GET: Member
         public ActionResult Index()
         {
-            return View();
+            List<MemberModel> member = repository.GetAll();
+       
+            return View("Index", member);
         }
 
         // GET: Member/Details/5
@@ -25,11 +28,18 @@ namespace ProgrammingClubM.Controllers
             return View("DetailsViewModel",viewModel);
         }
 
+        // GET: CodeSnippet/Details/5
+        public ActionResult Details(Guid id)
+        {
+           
+            MemberModel memberModel = repository.GetById(id);
+            return View("Details", memberModel);
+        }
 
         // GET: Member/Create
         public ActionResult Create()
         {
-            return View();
+            return View("Create");
         }
 
         // POST: Member/Create
@@ -40,55 +50,66 @@ namespace ProgrammingClubM.Controllers
             {
                 // TODO: Add insert logic here
 
+                MemberModel memberModel = new MemberModel();
+                UpdateModel(memberModel);
+                repository.InsertMember(memberModel);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("Create");
             }
         }
 
         // GET: Member/Edit/5
-        public ActionResult Edit(int id)
+        public ActionResult Edit(Guid id)
         {
-            return View();
+            MemberModel memberModel = repository.GetById(id);
+            return View("Edit", memberModel);
+          
         }
 
         // POST: Member/Edit/5
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Guid id, FormCollection collection)
         {
             try
             {
                 // TODO: Add update logic here
 
+                MemberModel memberModel = new MemberModel();
+                UpdateModel(memberModel);
+                repository.UpdateMember(memberModel);
                 return RedirectToAction("Index");
+          
             }
             catch
             {
-                return View();
+                return View("Edit");
             }
         }
 
         // GET: Member/Delete/5
-        public ActionResult Delete(int id)
+        public ActionResult Delete(Guid id)
         {
-            return View();
+            MemberModel memberModel = repository.GetById(id);
+
+            return View("Delete", memberModel);
         }
 
         // POST: Member/Delete/5
         [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        public ActionResult Delete(Guid id, FormCollection collection)
         {
             try
             {
                 // TODO: Add delete logic here
-
+                repository.Delete(id);
                 return RedirectToAction("Index");
             }
             catch
             {
-                return View();
+                return View("Delete");
             }
         }
     }
