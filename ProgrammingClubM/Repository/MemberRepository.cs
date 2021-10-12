@@ -1,5 +1,6 @@
 ﻿using ProgrammingClubM.Models;
 using ProgrammingClubM.Models.DBObjects;
+using ProgrammingClubM.Models.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,31 @@ namespace ProgrammingClubM.Repository
         public MemberRepository(ClubMembershipModelsDataContext dataContext)
         {
             this.dbContext = dataContext;
+        }
+
+        public MemberCodeSnippetsViewModel GetMemberCodeSnippets(Guid memberID)
+        {
+            MemberCodeSnippetsViewModel memberCodeSnippetsViewModel = new MemberCodeSnippetsViewModel();
+            Member member = dbContext.Members.FirstOrDefault(m => m.IDMember == memberID);
+
+            if(member != null)
+            {
+                memberCodeSnippetsViewModel.Name = member.Name;
+                memberCodeSnippetsViewModel.Position = member.Position;
+                memberCodeSnippetsViewModel.Title = member.Title;
+
+                IQueryable<CodeSnippet> memberCodeSnippets = dbContext.CodeSnippets.Where(c => c.IDMember == memberID);
+                foreach(CodeSnippet code in memberCodeSnippets)
+                {
+                    CodeSnippetModel codeSnippetModel = new CodeSnippetModel();
+                    codeSnippetModel.Title = code.Title;
+                    codeSnippetModel.ContentCode = code.ContentCode;
+                    codeSnippetModel.Revision = code.Revision;
+                    memberCodeSnippetsViewModel.CodeSnippets.Add(codeSnippetModel);
+                }
+            }
+
+            return memberCodeSnippetsViewModel;
         }
 
         private MemberModel MapDbOjectToModel (Member dbMember)
@@ -109,4 +135,4 @@ namespace ProgrammingClubM.Repository
         }
     }
 
-}}
+}
