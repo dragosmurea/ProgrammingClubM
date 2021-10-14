@@ -32,6 +32,7 @@ namespace ProgrammingClubM.Controllers
             return View("Create");
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: MembershipType/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -58,6 +59,7 @@ namespace ProgrammingClubM.Controllers
             return View("Edit", membershiptypeModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: MembershipType/Edit/5
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
@@ -85,6 +87,7 @@ namespace ProgrammingClubM.Controllers
             return View("Delete", membershiptypeModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: MembershipType/Delete/5
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)

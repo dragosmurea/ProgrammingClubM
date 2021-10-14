@@ -46,6 +46,9 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new {  id = Model.IDMembershipType }) |
+    @if (User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Edit", "Edit", new { id = Model.IDMembershipType }) 
+    }|
     @Html.ActionLink("Back to List", "Index")
 </p>

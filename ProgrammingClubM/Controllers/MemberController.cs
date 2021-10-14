@@ -12,6 +12,7 @@ namespace ProgrammingClubM.Controllers
     public class MemberController : Controller
     {
 
+
         private MemberRepository repository = new MemberRepository();
         // GET: Member
         public ActionResult Index()
@@ -20,6 +21,7 @@ namespace ProgrammingClubM.Controllers
        
             return View("Index", member);
         }
+
 
         // GET: Member/Details/5
         public ActionResult DetailsViewModel(Guid id)
@@ -42,6 +44,7 @@ namespace ProgrammingClubM.Controllers
             return View("Create");
         }
 
+        [Authorize(Roles = "User, Admin")]
         // POST: Member/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -69,6 +72,7 @@ namespace ProgrammingClubM.Controllers
           
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Member/Edit/5
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
@@ -97,6 +101,7 @@ namespace ProgrammingClubM.Controllers
             return View("Delete", memberModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: Member/Delete/5
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)

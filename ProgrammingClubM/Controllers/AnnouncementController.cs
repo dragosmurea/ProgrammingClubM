@@ -34,6 +34,7 @@ namespace ProgrammingClubM.Controllers
             return View("CreateAnnouncement");
         }
 
+
         [Authorize(Roles = "User, Admin")]
         // POST: Announcement/Create
         [HttpPost]
@@ -60,6 +61,8 @@ namespace ProgrammingClubM.Controllers
             return View("EditAnnouncement", announcementModel);
 
         }
+
+        [Authorize(Roles = "Admin")]
 
         // POST: Announcement/Edit/5
         [HttpPost]

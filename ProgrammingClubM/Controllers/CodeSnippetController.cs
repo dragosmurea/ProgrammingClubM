@@ -36,6 +36,7 @@ namespace ProgrammingClubM.Controllers
             return View("Create");
         }
 
+        [Authorize(Roles = "User, Admin")]
         // POST: CodeSnippet/Create
         [HttpPost]
         public ActionResult Create(FormCollection collection)
@@ -62,6 +63,7 @@ namespace ProgrammingClubM.Controllers
             return View("Edit", codeSnippetModel);
         }
 
+        [Authorize(Roles = "User, Admin")]
         // POST: CodeSnippet/Edit/5
         [HttpPost]
         public ActionResult Edit(Guid id, FormCollection collection)
@@ -88,6 +90,7 @@ namespace ProgrammingClubM.Controllers
             return View("Delete", codeSnippetModel);
         }
 
+        [Authorize(Roles = "Admin")]
         // POST: CodeSnippet/Delete/5
         [HttpPost]
         public ActionResult Delete(Guid id, FormCollection collection)

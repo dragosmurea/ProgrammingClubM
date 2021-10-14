@@ -8,7 +8,10 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @if (User.IsInRole("User") || User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("Create New", "Create")
+    }
 </p>
 <table class="table">
     <tr>
@@ -50,9 +53,16 @@
         </td>
 
         <td>
-            @Html.ActionLink("Edit", "Edit", new {id = item.IDCodeSnippet}) |
+            @if (User.IsInRole("User") || User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.IDCodeSnippet })
+            }|
             @Html.ActionLink("Details", "Details", new { id = item.IDCodeSnippet }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.IDCodeSnippet })
+
+            @if (User.IsInRole("Admin"))
+            {
+                @Html.ActionLink("Delete", "Delete", new { id = item.IDCodeSnippet })
+            }
         </td>
     </tr>
 }
